@@ -3,12 +3,220 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Your Name</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+<title>Wagner-Adair</title>
+<meta name="description" content="Bryan and Gwen Wagner-Adair. Find us online.">
+<meta property="og:title" content="Wagner-Adair">
+<meta property="og:description" content="Bryan and Gwen Wagner-Adair. Find us online.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316181d'/%3E%3Ccircle cx='22' cy='32' r='10' fill='%238ea2ff'/%3E%3Ccircle cx='42' cy='32' r='10' fill='%23ff8fb0'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --ink: #16181d;
+    --muted: #666b75;
+    --line: #dcdde0;
+    --bryan: #2748d8;
+    --gwen: #c2305f;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115;
+      --ink: #eceef2;
+      --muted: #939aa6;
+      --line: #262a31;
+      --bryan: #8ea2ff;
+      --gwen: #ff8fb0;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Avenir Next", "SF Pro Display", ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main {
+    width: 100%;
+    max-width: 980px;
+    margin: auto;
+    padding: clamp(40px, 9vh, 96px) 24px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.6rem, 12vw, 6.5rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.035em;
+  }
+
+  .lede {
+    margin: 18px 0 0;
+    font-size: 1.1rem;
+    color: var(--muted);
+  }
+
+  .people {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: clamp(36px, 7vw, 72px);
+    border-top: 2px solid var(--ink);
+  }
+
+  .person { padding-top: 28px; }
+  .person:first-child { padding-right: clamp(24px, 5vw, 56px); }
+  .person + .person {
+    padding-left: clamp(24px, 5vw, 56px);
+    border-left: 1px solid var(--line);
+  }
+
+  .bryan { --a: var(--bryan); }
+  .gwen { --a: var(--gwen); }
+
+  h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 20px;
+    font-size: 1.9rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  h2::before {
+    content: "";
+    flex: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--a);
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 0;
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    background-image: linear-gradient(var(--a), var(--a));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0 2px;
+    transition: background-size 0.25s ease;
+  }
+
+  .label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .handle {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    color: var(--muted);
+    transition: color 0.2s ease;
+  }
+
+  a:hover,
+  a:focus-visible { background-size: 100% 2px; }
+
+  a:hover .label,
+  a:hover .handle,
+  a:focus-visible .label,
+  a:focus-visible .handle { color: var(--a); }
+
+  a:focus-visible {
+    outline: 2px solid var(--a);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 680px) {
+    .people { grid-template-columns: 1fr; }
+    .person:first-child { padding-right: 0; }
+    .person + .person {
+      margin-top: 12px;
+      padding-left: 0;
+      border-left: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    a, .label, .handle { transition: none; }
+  }
+</style>
 </head>
 <body>
-<h1>Your Name</h1>
-<ul>
-  <li><a href="https://www.linkedin.com/in/yourprofile">LinkedIn</a></li>
-</ul>
+<main>
+  <header>
+    <h1>Wagner-Adair</h1>
+    <p class="lede">Find us online.</p>
+  </header>
+
+  <div class="people">
+    <section class="person bryan" aria-labelledby="bryan">
+      <h2 id="bryan">Bryan</h2>
+      <ul>
+        <li>
+          <a href="https://www.linkedin.com/in/bryanwagneradair/">
+            <span class="label">LinkedIn</span>
+            <span class="handle">in/bryanwagneradair</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://ramshacklethoughts.blog">
+            <span class="label">Blog</span>
+            <span class="handle">ramshacklethoughts.blog</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="person gwen" aria-labelledby="gwen">
+      <h2 id="gwen">Gwen</h2>
+      <ul>
+        <li>
+          <a href="https://www.linkedin.com/in/gwenwagneradair/">
+            <span class="label">LinkedIn</span>
+            <span class="handle">in/gwenwagneradair</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/petitchoufleur/">
+            <span class="label">Instagram</span>
+            <span class="handle">@petitchoufleur</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</main>
 </body>
 </html>
